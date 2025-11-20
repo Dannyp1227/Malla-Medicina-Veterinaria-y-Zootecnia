@@ -1,0 +1,122 @@
+:root{
+  --bg:#f6f8fb;
+  --card:#ffffff;
+  --muted:#666;
+  --accent:#2b7cff;
+  --gap:12px;
+}
+
+/* Reset simple */
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  background:var(--bg);
+  color:#111;
+  padding:18px;
+  line-height:1.35;
+}
+
+/* Header */
+header{margin-bottom:14px}
+h1{font-size:1.6rem}
+.subtitle{color:var(--muted);margin-top:6px;font-size:0.95rem}
+
+/* Controls */
+.controls{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+  margin:14px 0;
+}
+.controls label, .controls input, .controls button{
+  font-size:0.95rem;
+}
+.controls select, .controls input{
+  padding:6px 8px;
+  border-radius:6px;
+  border:1px solid #ddd;
+  background:white;
+}
+
+/* Grid: cada semestre es una columna */
+.malla-grid{
+  display:grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap:var(--gap);
+  align-items:start;
+}
+
+/* Columna semestre */
+.semester{
+  background:transparent;
+  min-width:220px;
+  border-radius:10px;
+}
+.semester-header{
+  background:#fff;
+  padding:8px;
+  border-radius:8px;
+  text-align:center;
+  box-shadow:0 1px 3px rgba(0,0,0,0.06);
+  margin-bottom:8px;
+  font-weight:600;
+}
+.cards{display:flex;flex-direction:column;gap:8px}
+
+/* Tarjeta asignatura */
+.card{
+  background:var(--card);
+  padding:8px;
+  border-radius:8px;
+  box-shadow:0 1px 4px rgba(11,22,40,0.05);
+  cursor:pointer;
+  border-left:6px solid transparent;
+}
+.card h3{font-size:0.95rem;margin-bottom:4px}
+.card p{font-size:0.82rem;color:var(--muted);margin:0}
+
+/* Colores por tipo */
+.type-basica{border-left-color:#f6c24d}
+.type-humanidades{border-left-color:#7fb3ff}
+.type-profbas{border-left-color:#f08a9a}
+.type-profespecifica{border-left-color:#9be2c5}
+
+/* Hover */
+.card:hover{transform:translateY(-3px);transition:all .15s ease}
+
+/* Modal */
+.modal{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,0.45);
+  z-index:50;
+}
+.modal.hidden{display:none}
+.modal-content{
+  background:white;
+  padding:18px;
+  border-radius:10px;
+  width:min(720px,95%);
+  max-height:88vh;
+  overflow:auto;
+  position:relative;
+}
+.close{
+  position:absolute;right:10px;top:10px;border:none;background:transparent;font-size:1.1rem;cursor:pointer;
+}
+
+/* Footer */
+footer{margin-top:18px;color:var(--muted);font-size:0.9rem}
+
+/* Responsive: reduce columns on small screens */
+@media (max-width:1200px){
+  .malla-grid{grid-template-columns: repeat(5, 1fr)}
+}
+@media (max-width:760px){
+  .malla-grid{grid-template-columns: repeat(2, 1fr)}
+  .controls{gap:6px}
+}
