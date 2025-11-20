@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Malla Curricular Interactiva - Veterinaria</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Malla Curricular Interactiva</h1>
+    <p class="subtitle">Programa Medicina Veterinaria y Zootecnia — versión web editable</p>
+  </header>
+
+  <nav class="controls">
+    <label>Filtrar por semestre:
+      <select id="semFilter">
+        <option value="todos">Todos</option>
+        <option value="1">Semestre I</option>
+        <option value="2">Semestre II</option>
+        <option value="3">Semestre III</option>
+        <option value="4">Semestre IV</option>
+        <option value="5">Semestre V</option>
+        <option value="6">Semestre VI</option>
+        <option value="7">Semestre VII</option>
+        <option value="8">Semestre VIII</option>
+        <option value="9">Semestre IX</option>
+        <option value="10">Semestre X</option>
+      </select>
+    </label>
+
+    <label>Filtrar por tipo:
+      <select id="typeFilter">
+        <option value="todos">Todos</option>
+        <option value="Básica">Básica</option>
+        <option value="Humanidades">Humanidades</option>
+        <option value="Profesional básica">Profesional básica</option>
+        <option value="Profesional específica">Profesional específica</option>
+      </select>
+    </label>
+
+    <input id="searchInput" type="search" placeholder="Buscar asignatura..." />
+    <button id="resetBtn">Mostrar todo</button>
+  </nav>
+
+  <main id="mallaContainer" class="malla-grid">
+    <!-- Columnas por semestre generadas por JS -->
+  </main>
+
+  <!-- Modal para detalles -->
+  <div id="modal" class="modal hidden" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+      <button id="closeModal" class="close">✕</button>
+      <h2 id="modalName"></h2>
+      <p><strong>Semestre:</strong> <span id="modalSem"></span></p>
+      <p><strong>Tipo:</strong> <span id="modalType"></span></p>
+      <p><strong>Créditos:</strong> <span id="modalCredits"></span></p>
+      <p><strong>Prerrequisitos:</strong> <span id="modalPrereq"></span></p>
+      <p id="modalDesc"></p>
+    </div>
+  </div>
+
+  <footer>
+    <p>Archivo editable — edita el arreglo <code>cursos</code> en <code>script.js</code> para actualizar la malla.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
